@@ -6,6 +6,7 @@ error_reporting(E_ALL);
 // Define a base path for including files
 $baseDir = __DIR__ . '/../src/';
 
+require_once $baseDir . 'models/Database.php';
 $do = 'home';
 
 if (isset($_GET['do'])) {
@@ -22,6 +23,11 @@ switch ($do) {
     require $baseDir . 'controllers/HomeController.php';
     $controller = new HomeController();
     $controller->debug();
+    break;
+  case 'creation_chars':
+    require $baseDir . 'controllers/CharController.php';
+    $controller = new CharController();
+    $controller->creation_char();
     break;
   default:
     http_response_code(404);
