@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : db
--- Généré le : ven. 10 jan. 2025 à 11:15
+-- Généré le : dim. 12 jan. 2025 à 22:59
 -- Version du serveur : 8.0.40
 -- Version de PHP : 8.2.27
 
@@ -29,22 +29,21 @@ USE `projet-e-commerce`;
 -- Structure de la table `Categorie`
 --
 
-CREATE TABLE IF NOT EXISTS `Categorie` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `nom` varchar(64) COLLATE utf8mb4_general_ci NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+CREATE TABLE `Categorie` (
+  `id` varchar(36) COLLATE utf8mb4_general_ci NOT NULL,
+  `nom` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `Categorie`
 --
 
 INSERT INTO `Categorie` (`id`, `nom`) VALUES
-(1, 'Première Guerre mondiale'),
-(2, 'Entre-deux-guerres'),
-(3, 'Seconde Guerre mondiale'),
-(4, 'Guerre froide'),
-(5, 'Époque moderne');
+('0c8ff42c-523c-47c6-8da5-6c295544c243', 'Première Guerre mondiale'),
+('26b8df9c-a0dc-4a09-ba54-2cdf74c7b076', 'Seconde Guerre mondiale'),
+('30a12ec1-1287-4327-874e-4471a45c5764', 'Époque moderne'),
+('b4044d64-c16e-4613-9942-1526cbd487ed', 'Entre-deux-guerres'),
+('ef5f2a3f-53a9-48c0-a917-74ba0fbe4f0a', 'Guerre froide');
 
 -- --------------------------------------------------------
 
@@ -52,21 +51,18 @@ INSERT INTO `Categorie` (`id`, `nom`) VALUES
 -- Structure de la table `Char`
 --
 
-CREATE TABLE IF NOT EXISTS `Char` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `nom` varchar(128) COLLATE utf8mb4_general_ci NOT NULL,
-  `description` text COLLATE utf8mb4_general_ci,
-  `prix` decimal(8,2) NOT NULL,
-  `date_ajout` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+CREATE TABLE `Char` (
+  `id` varchar(36) COLLATE utf8mb4_general_ci NOT NULL,
+  `nom` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
+  `prix` decimal(10,2) NOT NULL,
+  `date_ajout` datetime NOT NULL,
   `stock` int NOT NULL,
   `poids` int NOT NULL,
   `calibre` int NOT NULL,
   `vitesse` int NOT NULL,
   `annee_conception` year NOT NULL,
-  `id_categorie` int NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `nom` (`nom`),
-  KEY `fk_id_categorie` (`id_categorie`)
+  `id_categorie` varchar(36) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -75,14 +71,12 @@ CREATE TABLE IF NOT EXISTS `Char` (
 -- Structure de la table `Commande`
 --
 
-CREATE TABLE IF NOT EXISTS `Commande` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `id_utilisateur` int NOT NULL,
+CREATE TABLE `Commande` (
+  `id` varchar(36) COLLATE utf8mb4_general_ci NOT NULL,
+  `id_utilisateur` varchar(36) COLLATE utf8mb4_general_ci NOT NULL,
   `date_commande` datetime DEFAULT CURRENT_TIMESTAMP,
-  `statut` enum('En cours','Prête') COLLATE utf8mb4_general_ci DEFAULT 'En cours',
-  PRIMARY KEY (`id`),
-  KEY `fk_id_utilisateur` (`id_utilisateur`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `statut` enum('En cours','Prête') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT 'En cours'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -90,15 +84,12 @@ CREATE TABLE IF NOT EXISTS `Commande` (
 -- Structure de la table `Commande_Produit`
 --
 
-CREATE TABLE IF NOT EXISTS `Commande_Produit` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `id_commande` int NOT NULL,
-  `id_char` int NOT NULL,
+CREATE TABLE `Commande_Produit` (
+  `id` varchar(36) COLLATE utf8mb4_general_ci NOT NULL,
+  `id_commande` varchar(36) COLLATE utf8mb4_general_ci NOT NULL,
+  `id_char` varchar(36) COLLATE utf8mb4_general_ci NOT NULL,
   `quantite` int UNSIGNED NOT NULL,
-  `prix_unitaire` decimal(8,2) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `fk_id_commande` (`id_commande`),
-  KEY `fk_id_produit` (`id_char`)
+  `prix_unitaire` decimal(8,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -107,15 +98,53 @@ CREATE TABLE IF NOT EXISTS `Commande_Produit` (
 -- Structure de la table `Utilisateur`
 --
 
-CREATE TABLE IF NOT EXISTS `Utilisateur` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `nom` varchar(64) COLLATE utf8mb4_general_ci NOT NULL,
-  `prenom` varchar(64) COLLATE utf8mb4_general_ci NOT NULL,
-  `email` varchar(128) COLLATE utf8mb4_general_ci NOT NULL,
-  `mot_de_passe` varchar(64) COLLATE utf8mb4_general_ci NOT NULL,
-  `role` enum('administrateur','client') COLLATE utf8mb4_general_ci DEFAULT 'client',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+CREATE TABLE `Utilisateur` (
+  `id` varchar(36) COLLATE utf8mb4_general_ci NOT NULL,
+  `nom` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `prenom` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `email` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `mot_de_passe` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `role` enum('administrateur','client') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT 'client'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Index pour les tables déchargées
+--
+
+--
+-- Index pour la table `Categorie`
+--
+ALTER TABLE `Categorie`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `Char`
+--
+ALTER TABLE `Char`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `nom` (`nom`),
+  ADD KEY `fk_id_categorie` (`id_categorie`);
+
+--
+-- Index pour la table `Commande`
+--
+ALTER TABLE `Commande`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_id_utilisateur` (`id_utilisateur`);
+
+--
+-- Index pour la table `Commande_Produit`
+--
+ALTER TABLE `Commande_Produit`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_id_commande` (`id_commande`),
+  ADD KEY `fk_id_produit` (`id_char`);
+
+--
+-- Index pour la table `Utilisateur`
+--
+ALTER TABLE `Utilisateur`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Contraintes pour les tables déchargées

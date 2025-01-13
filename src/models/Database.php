@@ -6,11 +6,6 @@ class Database
     // Instance unique de PDO
     private static $instance = null;
     private $pdo;
-    // Informations de connexion 
-    
-    //private $db_name = getenv("DB_NAME");
-    //private $db_user = getenv("DB_USER");
-    //private $db_password = getenv("DB_PASSWORD");
     
     // Constructeur privé pour empécher 1'instanciation directe
     private function __construct()
@@ -60,3 +55,5 @@ try {
 } catch (Exception $e) {
     echo $e->getMessage();
 }
+
+?>
