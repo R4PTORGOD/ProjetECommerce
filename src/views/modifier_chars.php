@@ -1,4 +1,5 @@
 <button><a href="/?do=home">Home</a></button>
+<button><a href="/?do=gestion_chars">Retour</a></button>
 
 <h1>Modifier un Char</h1>
 <form action="" method="post">
@@ -33,6 +34,6 @@
             <option value=<?= "$id" ?> <?= $id ==  $char["id_categorie"] ? "selected" : "" ?>><?= $periode ?></option>
         <?php } ?>
     </select>
-
-    <button type="submit" name="submit">Envoyer</button>
+    <input type="hidden" name="id_cha" value="<?= $char["id_cha"] ?>">
+    <button type="submit" name="submit_modif">Envoyer</button>
 </form>

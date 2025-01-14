@@ -1,6 +1,7 @@
 <button><a href="/?do=home">Home</a></button>
 
 <h1>Liste des chars</h1>
+<h3><?= $message ?></h3>
 <form action="" method="post">
     <label for="id_categorie">ID Catégorie :</label><br>
     <select id="id_categorie" name="id_categorie" required>
@@ -41,11 +42,11 @@
                 <td><?= $char["annee_conception"] ?></td>
                 <form action="/?do=modifier_chars" method="post">
                     <td><button type="submit" name="modifier">Modifier</button></td>
-                    <input type="hidden" name="id_char" value="<?= $char["id_cha"] ?>">
+                    <input type="hidden" name="id_cha" value="<?= $char["id_cha"] ?>">
                 </form>
                 <form action="/?do=supprimer_chars" method="post">
                     <td><button type="submit" name="supprimer">Supprimer</button></td>
-                    <input type="hidden" name="id_char" value="<?= $char["id_cha"] ?>">
+                    <input type="hidden" name="id_cha" value="<?= $char["id_cha"] ?>">
                 </form>
             </tr>
         <?php } ?>
