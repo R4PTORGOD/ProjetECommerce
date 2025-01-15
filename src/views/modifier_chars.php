@@ -34,6 +34,7 @@
             <option value=<?= "$id" ?> <?= $id ==  $char["id_categorie"] ? "selected" : "" ?>><?= $periode ?></option>
         <?php } ?>
     </select>
+    
     <input type="hidden" name="id_cha" value="<?= $char["id_cha"] ?>">
     <button type="submit" name="submit_modif">Envoyer</button>
 </form>

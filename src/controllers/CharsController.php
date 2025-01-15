@@ -81,8 +81,10 @@ class CharsController
           $message = "";
           break;
       }
-        
+    } else {
+      $message = "";
     }
+
     // Load the view
     require_once __DIR__ . '/../views/gestion_chars.php';
   }

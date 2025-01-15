@@ -3,15 +3,28 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 ob_start();
+
 // Define a base path for including files
 $baseDir = __DIR__ . '/../src/';
+session_start();
 
 require_once $baseDir . 'models/Database.php';
 $do = 'home';
+// tableau des adresses ou peuvent se rendre les clients
+$do_client = ["home", "logout", "lister_chars"];
 
 if (isset($_GET['do'])) {
   $do = $_GET['do'];
 }
+
+if ($do != 'login' && $do != 'register' && !isset($_SESSION['user'])) {
+  header('Location: /?do=login');
+} elseif (isset($_SESSION["user"])) {
+  if ($_SESSION["user"]["role"] == "client" && !in_array($do, $do_client)) {
+    header('Location: /?do=home');
+  }
+}
+
 
 ?>
 
@@ -34,6 +47,20 @@ if (isset($_GET['do'])) {
       require $baseDir . 'controllers/HomeController.php';
       $controller = new HomeController();
       $controller->index();
+      break;
+    case 'register':
+      require $baseDir . 'controllers/AuthController.php';
+      $controller = new AuthController();
+      $controller->register();
+      break;
+    case 'login':
+      require $baseDir . 'controllers/AuthController.php';
+      $controller = new AuthController();
+      $controller->login();
+      break;
+    case 'logout':
+      session_destroy();
+      header('Location: /');
       break;
     case 'debug':
       ob_end_flush();
