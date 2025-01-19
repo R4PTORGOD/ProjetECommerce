@@ -7,11 +7,12 @@ ob_start();
 // Define a base path for including files
 $baseDir = __DIR__ . '/../src/';
 session_start();
-
+require_once __DIR__ . '/../vendor/autoload.php';
 require_once $baseDir . 'models/Database.php';
+require_once $baseDir . 'models/MongoDB.php';
 $do = 'home';
-// tableau des adresses ou peuvent se rendre les clients
-$do_client = ["home", "logout", "lister_chars"];
+// tableau des pages ou peuvent se rendre les clients
+$do_client = ["home", "logout", "lister_chars", "lister_article"];
 
 if (isset($_GET['do'])) {
   $do = $_GET['do'];
@@ -95,6 +96,30 @@ if ($do != 'login' && $do != 'register' && !isset($_SESSION['user'])) {
       require $baseDir . 'controllers/CharsController.php';
       $controller = new CharsController();
       $controller->supprimer_chars();
+      break;
+    case 'lister_article':
+      ob_end_flush();
+      require $baseDir . 'controllers/ArticleController.php';
+      $controller = new ArticleController();
+      $controller->lister_article();
+      break;
+    case 'insert_article':
+      ob_end_flush();
+      require $baseDir . 'controllers/ArticleController.php';
+      $controller = new ArticleController();
+      $controller->insert_article();
+      break;
+    case 'gestion_article':
+      ob_end_flush();
+      require $baseDir . 'controllers/ArticleController.php';
+      $controller = new ArticleController();
+      $controller->gestion_article();
+      break;
+    case 'modifier_article':
+      ob_end_flush();
+      require $baseDir . 'controllers/ArticleController.php';
+      $controller = new ArticleController();
+      $controller->modifier_article();
       break;
     default:
       ob_end_flush();

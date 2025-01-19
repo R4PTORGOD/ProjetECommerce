@@ -6,7 +6,7 @@ class Database
     // Instance unique de PDO
     private static $instance = null;
     private $pdo;
-    
+
     // Constructeur privé pour empécher 1'instanciation directe
     private function __construct()
     {
@@ -30,9 +30,15 @@ class Database
         }
         return self::$instance->pdo;
     }
+
     // Clonage et réveil désactivés
-    public function __clone() {}
-    public function __wakeup() {}
+    public function __clone()
+    {
+    }
+
+    public function __wakeup()
+    {
+    }
 
     public static function generateUUID()
     {

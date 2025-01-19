@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : db
--- Généré le : mer. 15 jan. 2025 à 11:34
+-- Généré le : dim. 19 jan. 2025 à 19:47
 -- Version du serveur : 8.0.40
 -- Version de PHP : 8.2.27
 
@@ -70,11 +70,14 @@ CREATE TABLE `Chars` (
 --
 
 INSERT INTO `Chars` (`id_cha`, `nom`, `description`, `prix`, `date_ajout`, `stock`, `poids`, `calibre`, `vitesse`, `annee_conception`, `id_categorie`) VALUES
-('06d5e62b-70a9-432d-bd5b-744926e83584', 'renault ft', 'char francais ', 500000.00, '2025-01-13 15:30:42', 10, 12000, 8, 18, '1914', '0c8ff42c-523c-47c6-8da5-6c295544c243'),
-('14c79699-740f-4f30-9b0f-85462578ccea', 't95', 'char americain', 2500000.00, '2025-01-13 18:22:55', 1, 93000, 155, 16, '1980', 'ef5f2a3f-53a9-48c0-a917-74ba0fbe4f0a'),
-('587a7ab9-69a3-4b9b-8393-8ec27d4847d1', 'tiger 1', 'char allemand ', 3000000.00, '2025-01-13 11:45:00', 2, 58000, 88, 40, '1939', 'b4044d64-c16e-4613-9942-1526cbd487ed'),
-('604ee5a3-edd9-4f9e-989f-c596c141d893', 'sherman firefly', 'ghghgfghf', 1000000.00, '2025-01-12 23:04:29', 10, 20000, 75, 40, '1936', 'b4044d64-c16e-4613-9942-1526cbd487ed'),
-('fe9cbcf0-2e49-4b1a-868d-bae517d5ace2', 't-34', 'char russe', 1000000.00, '2025-01-13 12:49:03', 20, 40000, 57, 50, '1941', '26b8df9c-a0dc-4a09-ba54-2cdf74c7b076');
+('011488db-21d5-4f18-9672-3b0e37af5956', 'Leopard 1', 'Le Leopard 1 est un char de combat principal développé en Allemagne de l\'Ouest dans les années 1960. Il a été conçu pour répondre à la nécessité d\'un char rapide et bien protégé, avec un excellent rapport puissance/poids et une bonne mobilité. Il a été le premier char à utiliser un canon lisse de 105 mm (au lieu des canons rayés traditionnels), permettant des tirs plus précis et une meilleure pénétration des blindages ennemis. Environ 6 000 unités produites. Il a été largement remplacé par le Leopard 2 dans les années 1980, mais des versions modernisées du Leopard 1 sont encore utilisées dans certaines armées aujourd\'hui.', 850000.00, '2025-01-17 10:49:11', 2, 42000, 105, 65, '1965', 'ef5f2a3f-53a9-48c0-a917-74ba0fbe4f0a'),
+('1c8614ca-6fdf-47f1-a1a7-f0efd290ec74', 'Renault FT', 'Le Renault FT est un char léger français de la Première Guerre mondiale, considéré comme le premier véritable char moderne. Il a introduit un design révolutionnaire avec une tourelle rotative à 360°, un compartiment moteur séparé et un armement placé dans une tourelle. Compact, maniable et simple à produire, il a servi de modèle pour les futurs chars dans le monde entier. Il a été largement utilisé par les forces françaises et alliées, et a même servi dans certains conflits ultérieurs. Produit à environ 3 800 exemplaires pendant la guerre.', 150000.00, '2025-01-17 10:40:29', 3, 6700, 37, 8, '1916', '0c8ff42c-523c-47c6-8da5-6c295544c243'),
+('5453577d-c8f4-4e27-9f2f-f7386be860c9', 'Leclerc', 'Le Leclerc est un char de combat principal développé en France dans les années 1980, et il est actuellement utilisé par l\'Armée de terre française ainsi que d\'autres forces armées dans le monde. Conçu pour être un char hautement moderne, le Leclerc a été conçu pour surpasser les chars de sa génération en termes de puissance de feu, de mobilité et de protection. Il utilise une technologie de pointe, notamment un système de gestion du combat numérique, ce qui le rend particulièrement efficace dans des environnements modernes de guerre.', 10000000.00, '2025-01-17 10:50:55', 1, 56000, 120, 72, '1980', '30a12ec1-1287-4327-874e-4471a45c5764'),
+('67ff6097-216f-4b0e-8b15-bdcca4e5ae5e', 'M1 Abrams', 'Le M1 Abrams est un char de combat principal développé par les États-Unis, qui a été mis en service en 1980. Il est largement utilisé par l\'armée américaine et plusieurs forces armées dans le monde. Conçu pour offrir un excellent rapport entre puissance de feu, protection et mobilité, il est l\'un des chars les plus modernes et les plus redoutables de la guerre contemporaine. Sa conception intègre un blindage composite, une suspension avancée et un moteur à turbine à gaz qui lui confère une mobilité impressionnante.', 8000000.00, '2025-01-17 10:52:51', 2, 63000, 120, 80, '1980', '30a12ec1-1287-4327-874e-4471a45c5764'),
+('a3acfb84-c729-4fe1-b354-17f98a918b69', ' T-55 (URSS)', 'Le T-55 est un char de combat principal soviétique qui a été introduit en 1958 et est l\'un des modèles de chars les plus largement utilisés et produits dans l\'histoire. Il a été conçu comme une version améliorée du T-54, avec une meilleure protection, un canon plus puissant et des améliorations de mobilité. Le T-55 a été utilisé par l\'Union Soviétique et de nombreux autres pays dans le monde entier, notamment durant la guerre froide, les conflits au Moyen-Orient, et jusqu\'à aujourd\'hui dans certaines régions. Le T-55 a été fabriqué à plus de 80 000 exemplaires, en faisant l\'un des chars les plus produits du 20e siècle.', 200000.00, '2025-01-17 10:46:35', 11, 36000, 100, 60, '1955', 'ef5f2a3f-53a9-48c0-a917-74ba0fbe4f0a'),
+('c0e13cf3-06c0-48b9-b9ba-bc506d1c6305', 'Tiger I (Panzerkampfwagen VI Ausf. E)', 'Le Tiger I est un char lourd allemand de la Seconde Guerre mondiale, conçu pour surpasser les chars ennemis en puissance de feu et en blindage. Déployé à partir de 1942, il était équipé d\'un canon puissant de 88 mm capable de percer presque tous les blindages adverses à l\'époque. Cependant, il était lent, coûteux à produire et souffrait de problèmes mécaniques en raison de sa complexité technique. C\'est un symbole emblématique des forces blindées allemandes. Il avait un blindage avant très épais (jusqu\'à 120 mm) et environ 1 347 exemplaires a été produit.', 2500000.00, '2025-01-17 10:32:24', 1, 57000, 88, 40, '1942', '26b8df9c-a0dc-4a09-ba54-2cdf74c7b076'),
+('d3324609-3f81-495d-a41a-1ac1cdad66f7', 'M4 Sherman', 'Le M4 Sherman était le char moyen principal des forces alliées pendant la Seconde Guerre mondiale, conçu pour être fiable, facile à produire en masse et à entretenir. Bien qu\'il ne rivalisait pas en puissance de feu ou en blindage avec des chars allemands comme le Tiger I ou le Panther, il compensait par sa grande mobilité, sa modularité et son nombre. Utilisé sur presque tous les fronts, il était essentiel dans la stratégie alliée. Produit en plus de 49 000 exemplaires.', 300000.00, '2025-01-17 10:35:27', 7, 33400, 75, 48, '1940', '26b8df9c-a0dc-4a09-ba54-2cdf74c7b076'),
+('e01a4fbd-2650-429d-8a13-3fc7c9e08bf6', 'Char B1', 'Le Char B1 était un char lourd français utilisé pendant la Seconde Guerre mondiale, notamment lors de la bataille de France en 1940. Il a été conçu dans les années 1930 pour être un char de soutien à l\'infanterie, avec une combinaison de puissance de feu et de blindage épais. Le Char B1 était unique dans son design, avec un canon de 75 mm dans la tourelle et une mitrailleuse de 7,5 mm montée à l\'avant du véhicule. Il avait aussi un blindage très épais, ce qui le rendait difficile à détruire pour l\'armement de l\'époque. Environ 400 unités construites.', 2000000.00, '2025-01-17 10:44:08', 1, 35000, 75, 32, '1935', 'b4044d64-c16e-4613-9942-1526cbd487ed');
 
 -- --------------------------------------------------------
 
@@ -117,6 +120,14 @@ CREATE TABLE `Utilisateur` (
   `mot_de_passe` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `role` enum('administrateur','client') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT 'client'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `Utilisateur`
+--
+
+INSERT INTO `Utilisateur` (`id_uti`, `nom`, `prenom`, `email`, `mot_de_passe`, `role`) VALUES
+('1ed52318-ff37-4286-973d-db46e95faa13', 'client', 'client', 'client@client.com', '$2y$10$Bbwx0E9hYjRz0N38mNIpvOVf7s2qNq9GveB5HcLbi5KzfT28s9ByK', 'client'),
+('b63b36d8-ec4c-4870-b64a-6d81cb0b64b8', 'admin', 'admin', 'admin@admin.com', '$2y$10$dYEd8bnkSZ0TwOF8Vvj6u.mENSHS0b0Bx8o/ZWqL2ibKFL654c5M.', 'administrateur');
 
 --
 -- Index pour les tables déchargées

@@ -35,5 +35,5 @@
         ?>
     </select>
 
-    <button type="submit" name="submit">Envoyer</button>
+    <button type="submit" name="submit">Créer</button>
 </form>
